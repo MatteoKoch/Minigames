@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+        
+        #home a {
+            width: 50%;
+            height: 150px;
+            color: #fff;
+            text-decoration: none;
+            background: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 40px;
+            box-shadow: 4px 4px #222;
+            transition: all 200ms ease-in-out;
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        
+        #home a:hover,
+        #home a:focus {
+            box-shadow: 1px 1px;
+            left: 3px;
+            top: 3px;
+        }
+        
+        #controls {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background: #777;
+            padding: 15px;
+            border-radius: 50%;
+            border: 3px solid #000;
+        }
+        
+        #controls button {
+            width: 80px;
+            color: #256b00;
+            height: 80px;
+            border-radius: 10px;
+            background-color: #73c34a;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 700px) {
+            #home a {
+                font-size: 40px;
+            }
+        }
+    </style>
+    <script src="../libs/p5.js"></script>
+    <div id="root"></div>
+    <script src="sketch.js"></script>
+    <script src="Spielfeld.js"></script>
+    <script src="Coordinates.js"></script>
+</head>
+
+<body>
+    <main>
+    </main>
+    
+    <div id="home">
+        <div id="controls">
+            <button onclick="goUp()" style="transform: rotate(90deg);">&lt;</button>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                <button onclick="goLeft()">&lt;</button>
+                <button style="background: #b1b1b1; border-radius: 50%;"></button>
+                <button onclick="goRight()">&gt;</button>
+            </div>
+            <button onclick="goDown()" style="transform: rotate(90deg);">&gt;</button>
+        </div>
+        <a href="..">zur&uuml;ck</a>
+    </div>
+    
+    <script>
+        setTimeout(function() {
+            document.querySelector("#home").style.width = `${document.querySelector("canvas").clientWidth}px`;
+        }, 2000)
+    </script>
+</body>
+
+</html>
